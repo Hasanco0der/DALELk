@@ -1,0 +1,48 @@
+﻿@model DALELk.Models.CategoryModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<!--This is Forms-->
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Book Table</h4>
+            <p class="card-description"> Basic Book Information </p>
+            <hr />
+            @if (ViewBag.IsSuccess == true)
+            {
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Congratulations</strong> You have added new Category successfully. <br />
+                </div>
+            }
+
+            <form method="post" enctype="multipart/form-data" class="forms-sample" asp-action="Create">
+
+                @*data-ajax="true" data-ajax-loading="#myloader"*@
+
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-row">
+                    <div class="col-md-4 mb-3">
+                        <label asp-for="Cat_Name"></label>
+                        <input asp-for="Cat_Name" class="form-control" placeholder="Title Book" />
+                        <span asp-validation-for="Cat_Name" class="text-danger"></span>
+                        <div class="valid-tooltip">
+                            Looks good!
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                    <a asp-action="Index" class="btn btn-outline-dark">Back to List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,71 @@
+﻿@model IEnumerable<DALELk.Models.CategoryModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--This is alert message -->
+
+
+<div class="page-header">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3 class="page-title">List of Categorys</h3>
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Dashboard</a></li>
+                @*<li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Users</a></li>*@
+                <li class="breadcrumb-item active">Category</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+@if (ViewBag.IsSuccess == true)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Wow</strong> You have deleted Category successfully.
+    </div>
+}
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Create New</a>
+</p>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="datatable table table-hover table-center mb-0">
+                        <thead>
+                            <tr style="text-align:center">
+                                <th>Category Name</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr style="text-align:center">
+                                    <td>
+
+                                        @item.Cat_Name
+
+                                    </td>
+                                    <td>
+                                        <a asp-controller="Categorys" asp-action="Edit" asp-route-id="@item.id" class="btn btn-outline-success">Edit</a>
+                                        <a asp-controller="Categorys" asp-action="Details" asp-route-id="@item.id" class="btn btn-outline-info">Details</a>
+                                        <a asp-action="Delete" asp-route-id="@item.id" class="btn btn-outline-danger">Delete</a>           
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add Modal -->

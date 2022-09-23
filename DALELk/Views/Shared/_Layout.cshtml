@@ -178,11 +178,13 @@
                             <a href="index.html"><i class="fe fe-home"></i> <span>Dashboard</span></a>
                         </li>
                         <li>
-                            <a href="appointment-list.html"><i class="fe fe-layout"></i> <span>Appointments</span></a>
+                            
+                            <a asp-controller="Categorys" asp-action="Index"><i class="fe fe-layout"></i> <span>Categories</span></a>
                         </li>
                         <li>
-                            <a href="specialities.html"><i class="fe fe-users"></i> <span>Specialities</span></a>
+                            <a asp-controller="Doctors" asp-action="Index"><i class="fe fe-users"></i> <span>Doctors</span></a>
                         </li>
+
                         <li>
                             <a href="doctor-list.html"><i class="fe fe-user-plus"></i> <span>Doctors</span></a>
                         </li>
@@ -290,7 +292,7 @@
                         @RenderBody()
                     </main>
                 </div>
-
+                @RenderSection("Scripts", required: false)
             </div>
         </div>
     </div>

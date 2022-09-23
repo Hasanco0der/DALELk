@@ -1,0 +1,84 @@
+﻿@model IEnumerable<DALELk.Data.Doctor>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShahadaDec)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Workhoure)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddressAsas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddressJanbi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CoverImageUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Categorys)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShahadaDec)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Workhoure)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddressAsas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddressJanbi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CoverImageUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Categorys.id)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
